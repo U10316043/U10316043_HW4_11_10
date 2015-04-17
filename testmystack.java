@@ -1,84 +1,52 @@
 import java.util.*;
 
 public class testmystack{
+	/**Main method*/
 	public static void main(String[] args){
 		
-		Scanner input = new Scanner(System.in);
-		stack object = new stack();
+		Scanner input = new Scanner(System.in);// Scanner
+		stack object = new stack();//new an object
 		for(int i = 1;i<=5;i++){
 			System.out.print("Please input a string: ");
-			String a = input.next();
-			object.push(a);
+			String a = input.next();//create a
+			object.push(a);//invoke method push
 		}
 		while(!object.isEmpty()){
-			System.out.print(object.pop()+" ");
+			System.out.print(object.pop()+" ");//print and invoke method
 		}
 	}
 }
 
-class stack extends MyStack{
-  private ArrayList<Object> list = new ArrayList<Object>();
-
-  @Override
+class stack extends ArrayList<Object>{
+	//method
   public boolean isEmpty() {
-    return list.isEmpty();
+    return super.isEmpty();
   }
 
-  @Override
+
   public int getSize() {
-    return list.size();
+    return super.size();
   }
 
-  @Override
+
   public Object peek() {
-    return list.get(getSize() - 1);
+    return super.get(getSize() - 1);
   }
 
-  @Override
+
   public Object pop() {
-    Object o = list.get(getSize() - 1);
-    list.remove(getSize() - 1);
+    Object o = super.get(getSize() - 1);
+    super.remove(getSize() - 1);
     return o;
   }
 
-  @Override
-  public void push(Object o) {
-    list.add(o);
-  }
 
+  public Object push(Object o) {
+    return super.add(o);	
+  }
+  
   @Override /** Override the toString in the Object class */
   public String toString() {
-    return "stack: " + list.toString();
-  }
-}
-
-class MyStack {
-  private ArrayList<Object> list = new ArrayList<Object>();
-
-  public boolean isEmpty() {
-    return list.isEmpty();
-  }
-
-  public int getSize() {
-    return list.size();
-  }
-
-  public Object peek() {
-    return list.get(getSize() - 1);
-  }
-
-  public Object pop() {
-    Object o = list.get(getSize() - 1);
-    list.remove(getSize() - 1);
-    return o;
-  }
-
-  public void push(Object o) {
-    list.add(o);
-  }
-
-  @Override /** Override the toString in the Object class */
-  public String toString() {
-    return "stack: " + list.toString();
+  return "stack: " + super.toString();
   }
 }
